@@ -1,0 +1,33 @@
+{
+    "name": "nanos/openai-exceptions",
+    "description": "Use the OpenAI API together with Laravel Ignition's Suggestions to show AI-powered fixes for errors in your Laravel application.",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Nanos\\OpenaiExceptions\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Michael Thomas",
+            "email": "nanos@thms.uk"
+        }
+    ],
+    "require": {
+        "php": "^8.1.0",
+        "laravel/framework": "^9.46.0|^10.0",
+        "openai-php/laravel": "^0.3.1",
+        "spatie/laravel-ignition": "^1.6.4|2.*"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Nanos\\OpenaiExceptions\\OpenAiSolutionServiceProvider"
+            ]
+        }
+    },
+
+    "minimum-stability": "dev",
+    "prefer-stable": true
+
+}

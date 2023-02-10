@@ -1,0 +1,1 @@
+# OpenAI powered fixes for your Laravel errors
