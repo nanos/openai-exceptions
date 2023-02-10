@@ -34,15 +34,13 @@ class OpenAiSolution implements Solution
      */
     public function getSolutionDescription(): string
     {
+        if(config('openai-exceptions.cache') <= 0) {
+            return $this->sendPrompt();
+        }
         return Cache::remember(
             'open-ai-solution-'.md5($this->prompt),
-            now()->addWeek(),
-            fn () => OpenAI::completions()->create([
-                'model' => 'text-davinci-003',
-                'max_tokens' => 200,
-                'temperature' => 0,
-                'prompt' => $this->prompt,
-            ])->choices[0]->text
+            config('openai-exceptions.cache'),
+            fn () => $this->sendPrompt(),
         );
     }
     public function getDocumentationLinks(): array
@@ -75,5 +73,15 @@ class OpenAiSolution implements Solution
         $backtrace = Backtrace::createForThrowable($throwable)->applicationPath(base_path());
         $frames = $backtrace->frames();
         return $frames[$backtrace->firstApplicationFrameIndex() ?? 0];
+    }
+
+    private function sendPrompt(): string
+    {
+        return OpenAI::completions()->create([
+            'model' => config('openai-exceptions.model'),
+            'max_tokens' => config('openai-exceptions.max_tokens'),
+            'temperature' => config('openai-exceptions.temperature'),
+            'prompt' => $this->prompt,
+        ])->choices[0]->text;
     }
 }

@@ -13,7 +13,11 @@ class OpenAiSolutionServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../resources/views' => resource_path('views/vendor/nanos/openai-exceptions'),
-        ]);
+        ], 'views');
+
+        $this->publishes([
+            __DIR__.'/../config/openai-exceptions.php' => config_path('openai-exceptions.php'),
+        ], 'config');
 
         if(config('openai.api_key')) {
             $this->app->make(SolutionProviderRepository::class)
