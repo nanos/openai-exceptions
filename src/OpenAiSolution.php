@@ -75,6 +75,9 @@ class OpenAiSolution implements Solution
         return $frames[$backtrace->firstApplicationFrameIndex() ?? 0];
     }
 
+    /**
+     * Actually send the prompt o OpenAI and return the response..
+     */
     private function sendPrompt(): string
     {
         return OpenAI::completions()->create([

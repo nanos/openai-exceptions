@@ -10,7 +10,7 @@ class OpenAiSolutionProvider implements HasSolutionsForThrowable
 
     public function canSolve(Throwable $throwable): bool
     {
-        return true;
+        return config('openai-exceptions.canSolve')($throwable);
     }
 
     /**

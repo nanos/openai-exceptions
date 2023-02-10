@@ -11,6 +11,14 @@ return [
     'organization' => env('OPENAI_ORGANIZATION'),
 
     /**
+     * This method decides if OpenAI will be used for your exception: Return `false` to exclude exceptions
+     */
+    'canSolve' => function(Throwable $throwable): bool
+    {
+        return true;
+    },
+
+    /**
      * cache: Define for how many seconds you want to cache API responses.
      * Default: 1 week
      */
