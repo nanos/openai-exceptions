@@ -2,7 +2,7 @@
 
 Use the OpenAI API together with Laravel Ignition's Suggestions to show AI-powered fixes for errors in your Laravel application.
 
-See [Add AI powered fixes to your Laravel error pages](https://blog.thms.uk/2023/02/ai-powered-solutions-laravel-error-pages) for details.
+See [Add AI powered fixes to your Laravel error pages](https://blog.thms.uk/2023/02/openai-exceptions-composer) for details.
 
 ## Get started
 
