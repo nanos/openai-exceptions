@@ -1,7 +1,7 @@
 {
     "name": "nanos/openai-exceptions",
     "description": "Use the OpenAI API together with Laravel Ignition's Suggestions to show AI-powered fixes for errors in your Laravel application.",
-    "version": "0.0.3",
+    "version": "1.0.0",
     "license": "MIT",
     "autoload": {
         "psr-4": {
